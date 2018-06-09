@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace StockExchange.Domain
 {
-    public class Class1
+    enum Status : int
     {
+        New = 1,
+        Deleted = 2,
+        Affirm = 3,
+        Completed = 4
     }
 }
