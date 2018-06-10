@@ -2,19 +2,19 @@
 
 namespace StockExchange.Domain
 {
-    class Firm
+    public class Firm
     {
-        private Firm() { }
+        internal Firm() { }
 
-        public int Id { get; private set; }
+        public int Id { get; internal set; }
 
-        public string Name { get; private set; }
+        public string Name { get; internal set; }
 
-        public string FullName { get; private set; }
+        public string FullName { get; internal set; }
 
-        public List<SettlePair> SettlePairs { get; set; }
+        public List<SettlePair> SettlePairs { get; private set; }
 
-        public List<Trade> Trades { get; set; }
+        public List<Trade> Trades { get; private set; }
 
         public void CreateTrade(
             Issue issue,

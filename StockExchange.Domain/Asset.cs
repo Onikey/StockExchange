@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockExchange.Domain
 {
-    class Asset
+    public class Asset
     {
         private Asset() { }
 

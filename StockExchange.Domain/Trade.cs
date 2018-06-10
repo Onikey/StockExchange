@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockExchange.Domain
 {
-    class Trade
+    public class Trade
     {
         private Trade() { }
 

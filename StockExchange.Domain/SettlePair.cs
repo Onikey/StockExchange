@@ -2,7 +2,7 @@
 
 namespace StockExchange.Domain
 {
-    class SettlePair
+    public class SettlePair
     {
         private SettlePair() { }
 
