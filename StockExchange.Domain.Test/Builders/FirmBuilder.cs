@@ -33,6 +33,7 @@ namespace StockExchange.Domain.Test.Builders
 
         public FirmBuilder WithSettlePair(SettlePair settlePair)
         {
+            settlePair.Firm = firm;
             firm.SettlePairs.Add(settlePair);
 
             return this;

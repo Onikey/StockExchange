@@ -1,18 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using Common.Abstractions;
+using System.Collections.Generic;
 
 namespace StockExchange.Domain
 {
-    public class SettlePair
+    public class SettlePair : Entity<int>
     {
-        private SettlePair() { }
+        internal SettlePair()
+        {
+            Assets = new List<Asset>();
+        }
 
-        public int Id { get; private set; }
+       
 
-        public string Name { get; private set; }
+        public string Name { get; internal set; }
 
-        public string DepoNum { get; private set; }
+        public string DepoNum { get; internal set; }
 
-        public Firm Firm { get; private set; }
+        public Firm Firm { get; internal set; }
 
         public List<Asset> Assets { get; set; }
 

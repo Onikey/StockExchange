@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8AAACE47-6899-4CFA-A83D-433EC83A1E30}</ProjectGuid>
+    <ProjectGuid>{5B9677CD-2064-44E6-9D4F-8B053AB202BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StockExchange.Domain</RootNamespace>
-    <AssemblyName>StockExchange.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Common.IoC</RootNamespace>
+    <AssemblyName>Common.IoC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,20 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Asset.cs" />
-    <Compile Include="Issue.cs" />
-    <Compile Include="SettlePair.cs" />
-    <Compile Include="Firm.cs" />
+    <Compile Include="Autofac\AutofacExtensions.cs" />
+    <Compile Include="Autofac\AutofacModule.cs" />
+    <Compile Include="Autofac\AutofacService.cs" />
+    <Compile Include="Common\DependencyParameter.cs" />
+    <Compile Include="Common\IDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Status.cs" />
-    <Compile Include="Trade.cs" />
-    <Compile Include="TradeAction.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Abstractions\Common.Abstractions.csproj">
-      <Project>{97602B3F-EF4C-4714-A368-C14256A05A55}</Project>
-      <Name>Common.Abstractions</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

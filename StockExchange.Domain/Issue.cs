@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace StockExchange.Domain
 {
-    public class Issue
+    public class Issue : Entity<int>
     {
-        private Issue() { }
+        internal Issue() { }
 
-        public int Id { get; private set; }
+        
 
-        public string Name { get; private set; }
+        public string Name { get; internal set; }
 
-        public string FullName { get; private set; }
+        public string FullName { get; internal set; }
 
     }
 }

@@ -1,12 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using Common.Abstractions;
+using Common.Abstractions.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace StockExchange.Domain
 {
-    public class Firm
+    public class Firm : Entity<int>, IAggregateRoot
     {
-        internal Firm() { }
-
-        public int Id { get; internal set; }
+        internal Firm()
+        {
+            SettlePairs = new List<SettlePair>();
+            Trades = new List<Trade>();
+        }
 
         public string Name { get; internal set; }
 
@@ -25,7 +31,7 @@ namespace StockExchange.Domain
             string initMemo,
             Firm confFirm)
         {
-            Trades.Add(Trade.Create(
+            var newTrade = Trade.Create(
                 issue: issue,
                 price: price,
                 qty: qty,
@@ -33,7 +39,31 @@ namespace StockExchange.Domain
                 initSettlePair: initSettlePair,
                 initAction: initAction,
                 initMemo: initMemo,
-                confFirm: confFirm));
+                confFirm: confFirm);
+
+            Trades.Add(newTrade);
+
+            confFirm.ProposeTrade(newTrade);
         }
+
+        internal void ProposeTrade(Trade newTrade)
+        {
+            if (newTrade.Status == Status.New && !Trades.Contains(newTrade))
+            {
+                Trades.Add(newTrade);
+            }
+        }
+
+        public void removeTrade(Trade trade)
+        {
+            Trades.Remove(trade);
+        }
+
+        public void affirmTrade(Trade trade)
+        {
+
+        }
+
+
     }
 }

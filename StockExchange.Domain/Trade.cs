@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace StockExchange.Domain
 {
-    public class Trade
+    public class Trade : Entity<int>
     {
         private Trade() { }
-
-        public int Id { get; private set; }
 
         public Issue Issue { get; set; }
 
@@ -45,7 +44,7 @@ namespace StockExchange.Domain
 
 
 
-        public static Trade Create(
+        internal static Trade Create(
             Issue issue,
             double price,
             int qty,
@@ -128,6 +127,22 @@ namespace StockExchange.Domain
             this.Status = Status.Affirm;
         }
 
+        public void remove(Firm firm)
+        {
+            if (this.Status != Status.New)
+            {
+                throw new Exception("Only tade with status [New] can be deleted");
+            }
+             if (!(this.InitFirm == firm || this.ConfFirm == firm))
+            {
+                throw new Exception("Only participantsof this trade can delete it");
+            }
+               this.Status = Status.Deleted;
+            
+
+
+
+        }
 
     }
 }
