@@ -1,0 +1,24 @@
+<div class="page-wrap">
+    <header role="navigation">
+        <mat-toolbar color="accent" class="main-nav">
+            <a mat-button [routerLink]="['trades']" routerLinkActive="active">
+                Мои сделки
+            </a>
+            <a mat-button [routerLink]="['trades/new-trade']" routerLinkActive="active">
+                Создать сделку
+            </a>
+            <span class="fill-remaining-space"></span>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu" xPosition="after" yPosition="below">
+                <a mat-menu-item [routerLink]="['user']">Информация о пользователе</a>
+                <button mat-menu-item (click)="logout()">Выход</button>
+            </mat-menu>
+        </mat-toolbar>
+    </header>
+    <main class="content full-content-container">
+        <router-outlet></router-outlet>
+    </main>
+</div>

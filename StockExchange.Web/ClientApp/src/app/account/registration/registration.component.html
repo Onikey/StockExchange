@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-title>Регистрация</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="regForm" (keydown.enter)="onSubmit()">
+            <mat-form-field [ngClass]="{'error': f.firstName.errors && !f.firstName.pristine}">
+                <input matInput type="text" placeholder="Ваше имя" formControlName="firstName" required>
+                <mat-error *ngIf="f.firstName.invalid && submitted">Укажите верную электронную почту</mat-error>
+                <mat-error *ngIf="wrongCredentials && !submitted">Пользователь с такой электронной почтой или паролем не найден</mat-error>
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="{'error': f.lastName.errors && !f.lastName.pristine}">
+                <input matInput type="text" placeholder="Ваша Фамилия" formControlName="lastName" required>
+                <mat-error *ngIf="f.lastName.invalid && submitted">Укажите верную электронную почту</mat-error>
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="{'error': f.email.errors && !f.email.pristine}">
+                <input matInput type="email" placeholder="E-mail" formControlName="email" required>
+                <mat-error *ngIf="f.email.invalid && submitted">Укажите верную электронную почту</mat-error>
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="{'error': f.organization.errors && !f.organization.pristine}">
+                <input matInput type="text" placeholder="Организация" formControlName="organization" required>
+                <mat-error *ngIf="f.organization.invalid && submitted">Укажите верную электронную почту</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Пароль" formControlName="password" required>
+                <mat-error *ngIf="f.password.invalid && submitted">Укажите верный пароль</mat-error>
+            </mat-form-field>
+            <mat-error *ngIf="wrongCredentials && !submitted">Пользователь с такой электронной почтой или паролем не найден</mat-error>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Подтвердите пароль" formControlName="confirmPassword" required>
+                <mat-error *ngIf="f.confirmPassword.invalid && submitted">Укажите верный пароль</mat-error>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary" (click)="onSubmit()">Создать</button>
+        <button mat-button type="button" color="primary" (click)="back()">Назад</button>
+    </mat-card-actions>
+</mat-card>

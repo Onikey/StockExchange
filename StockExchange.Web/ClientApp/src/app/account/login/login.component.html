@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-title>Авторизация</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (keydown.enter)="onSubmit()">
+            <mat-form-field [ngClass]="{'error': f.email.errors && !f.email.pristine}">
+                <input matInput type="email" placeholder="Электронная почта" formControlName="email" required>
+                <mat-error *ngIf="f.email.invalid && submitted">Укажите верную электронную почту</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Пароль" formControlName="password" required>
+                <mat-error *ngIf="f.password.invalid && submitted">Укажите верный пароль</mat-error>
+            </mat-form-field>
+            <mat-error *ngIf="wrongCredentials && !submitted">Пользователь с такой электронной почтой или паролем не найден</mat-error>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary" (click)="onSubmit()" [disabled]="f.email.untouched || f.password.untouched">Войти</button>
+        <button mat-raised-button type="button" color="primary" (click)="registration()">Регистрация</button>
+        <button mat-button type="button" color="primary">Забыли пароль?</button>
+    </mat-card-actions>
+</mat-card>

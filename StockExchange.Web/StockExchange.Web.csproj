@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <UserSecretsId>2fce64ab-30cc-4221-ac8f-521a815c9cb0</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StockExchange.Data\StockExchange.Data.csproj" />
   </ItemGroup>
 
 </Project>

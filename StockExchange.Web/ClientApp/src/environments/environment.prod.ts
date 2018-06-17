@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  logApi: '/api/logger',
+  useLogWebApi: true
 };

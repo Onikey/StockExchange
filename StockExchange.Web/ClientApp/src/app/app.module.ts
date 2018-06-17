@@ -1,5 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AppRoutingModule } from './app.routing';
+
+import { CoreModule } from './core/core.module';
+import { fakeBackendProvider } from './fake-backend.provider';
 
 import { AppComponent } from './app.component';
 
@@ -8,9 +15,16 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [
+    // remove in prod
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

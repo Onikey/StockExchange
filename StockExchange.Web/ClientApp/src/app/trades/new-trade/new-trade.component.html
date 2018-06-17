@@ -1,0 +1,47 @@
+<form [formGroup]="tradeForm">
+    <div>
+        <button mat-button color="primary">BUY</button>
+    </div>
+    <div>
+        <div class="issue-container">
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Issue name" aria-label="Issue name" [matAutocomplete]="issueAuto" formControlName="issue">
+                <mat-autocomplete #issueAuto="matAutocomplete">
+                    <mat-option *ngFor="let issue of issues | async" [value]="issue.name">
+                        <span>{{ issue.name }}</span>
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Issue Full name" aria-label="Issue Full name" readonly [value]="'test'">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Conf Firm" aria-label="Conf Firm" [matAutocomplete]="confFirm" formControlName="confFirm">
+                <mat-autocomplete #confFirm="matAutocomplete">
+                    <mat-option *ngFor="let confFirm of confFirms | async" [value]="confFirm.name">
+                        <span>{{ confFirm.name }}</span>
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Conf Firm Full name" aria-label="Conf Firm Full name" readonly [value]="'test'">
+            </mat-form-field>
+        </div>
+    </div>
+    <!-- <div>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Conf Firm" aria-label="Conf Firm" >
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Conf Firm" aria-label="Conf Firm" >
+        </mat-form-field>
+    </div> -->
+    <div>
+        <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+        <button mat-button color="primary" (click)="onReset()">Reset</button>
+    </div>
+</form>

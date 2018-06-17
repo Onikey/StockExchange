@@ -1,0 +1,66 @@
+img {
+    width: initial;
+    height: calc(100% - 1em);
+    padding: 0.5em 0;
+}
+
+.page-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 46em;
+}
+
+header {
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+mat-toolbar-row>* {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+main {
+    padding-top: 6px;
+}
+
+@import 'src/custom-theme.scss';
+footer {
+    padding: 12px;
+    font-size: 12px;
+    height: 76px;
+    background-color: mat-color($accent, 400);
+}
+
+mat-tab-link {
+    padding-bottom: 1em;
+}
+
+.logo-container {
+    height: inherit;
+}
+
+img {
+    width: initial;
+    height: calc(100% - 1em);
+    padding: 0.5em 0;
+}
+
+*[mat-button] {
+    margin-left: 3em;
+    font-size: 1em;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+mat-icon {
+    font-size: 2em;
+    width: initial;
+    height: initial;
+}
+
+.main-nav {
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
