@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.Data.Test", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.Integration", "StockExchange.Integration\StockExchange.Integration.csproj", "{264AD2DA-D2FC-4044-9293-B3CD05140296}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockExchange.Web", "StockExchange.Web\StockExchange.Web.csproj", "{D2815E08-FAC8-44A8-90F5-99B9CFB453C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{264AD2DA-D2FC-4044-9293-B3CD05140296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{264AD2DA-D2FC-4044-9293-B3CD05140296}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{264AD2DA-D2FC-4044-9293-B3CD05140296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2815E08-FAC8-44A8-90F5-99B9CFB453C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2815E08-FAC8-44A8-90F5-99B9CFB453C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2815E08-FAC8-44A8-90F5-99B9CFB453C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2815E08-FAC8-44A8-90F5-99B9CFB453C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

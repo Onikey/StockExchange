@@ -13,9 +13,9 @@ namespace StockExchange.Domain.Test.Builders
 
         private Issue issue = new Issue();
 
-        public IssueBuilder WithId(int id)
+        public IssueBuilder WithId(decimal id)
         {
-            issue.Id = id;
+          //  issue.Id = id;
             return this;
         }
 

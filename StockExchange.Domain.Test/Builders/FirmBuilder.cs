@@ -11,9 +11,9 @@ namespace StockExchange.Domain.Test.Builders
     {
         private Firm firm = new Firm();
 
-        public FirmBuilder WithId(int id)
+        public FirmBuilder WithId(decimal id)
         {
-            firm.Id = id;
+          //  firm.Id = id;
             return this;
         }
 

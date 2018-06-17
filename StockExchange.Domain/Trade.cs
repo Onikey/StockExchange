@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StockExchange.Domain
 {
-    public class Trade : Entity<int>
+    public class Trade : Entity<decimal>
     {
         private Trade() { }
 

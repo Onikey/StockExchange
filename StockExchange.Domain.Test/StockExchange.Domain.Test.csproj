@@ -77,6 +77,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Abstractions\Common.Abstractions.csproj">
+      <Project>{97602b3f-ef4c-4714-a368-c14256a05a55}</Project>
+      <Name>Common.Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StockExchange.Domain\StockExchange.Domain.csproj">
       <Project>{8aaace47-6899-4cfa-a83d-433ec83a1e30}</Project>
       <Name>StockExchange.Domain</Name>

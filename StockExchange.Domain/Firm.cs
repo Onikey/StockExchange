@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace StockExchange.Domain
 {
-    public class Firm : Entity<int>, IAggregateRoot
+    public class Firm : Entity<decimal>, IAggregateRoot
     {
         internal Firm()
         {

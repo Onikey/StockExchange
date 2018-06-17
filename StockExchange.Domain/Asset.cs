@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StockExchange.Domain
 {
-    public class Asset : Entity<int>
+    public class Asset : Entity<decimal>
     {
         internal Asset() { }
 

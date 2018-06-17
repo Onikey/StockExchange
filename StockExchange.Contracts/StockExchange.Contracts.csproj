@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAssetRepository.cs" />
     <Compile Include="Repositories\IFirmRepository.cs" />
+    <Compile Include="Repositories\IIssueRepository.cs" />
+    <Compile Include="Repositories\ISettlePairRepository.cs" />
+    <Compile Include="Repositories\ITradeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockExchange.Domain\StockExchange.Domain.csproj">

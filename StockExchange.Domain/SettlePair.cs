@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace StockExchange.Domain
 {
-    public class SettlePair : Entity<int>
+    public class SettlePair : Entity<decimal>
     {
         internal SettlePair()
         {

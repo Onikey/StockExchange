@@ -1,9 +1,7 @@
 ﻿using StockExchange.Domain;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StockExchange.Contracts.Repositories
 {
@@ -13,7 +11,7 @@ namespace StockExchange.Contracts.Repositories
 
         ICollection<Firm> GetAll();
 
-        Firm GetById(int id);
+        Firm GetById(decimal id);
 
         void Update(Firm item);
 

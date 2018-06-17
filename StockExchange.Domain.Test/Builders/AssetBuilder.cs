@@ -10,9 +10,9 @@ namespace StockExchange.Domain.Test.Builders
     {
         private Asset asset = new Asset();
 
-        public AssetBuilder withId(int id)
+        public AssetBuilder withId(decimal id)
         {
-            asset.Id = id;
+          //  asset.Id = id;
             return this;
 
         }

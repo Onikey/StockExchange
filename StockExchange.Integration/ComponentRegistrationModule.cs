@@ -41,6 +41,9 @@ namespace StockExchange.Integration
         {
             builder.Register((x, y) => new FirmRepository(x.ResolveKeyed<IAsyncGenericRepository>(DataSourceType.StockExchangeEF)))
                 .As<IFirmRepository>();
+
+            builder.Register((x, y) => new IssueRepository(x.ResolveKeyed<IAsyncGenericRepository>(DataSourceType.StockExchangeEF)))
+               .As<IIssueRepository>();
         }
     }
 }

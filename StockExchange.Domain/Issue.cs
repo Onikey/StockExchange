@@ -1,18 +1,12 @@
 ﻿using Common.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Common.Abstractions.Entities;
 
 namespace StockExchange.Domain
 {
-    public class Issue : Entity<int>
+    public class Issue : Entity<decimal>, IAggregateRoot
     {
         internal Issue() { }
-
         
-
         public string Name { get; internal set; }
 
         public string FullName { get; internal set; }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace StockExchange.Domain.Test.Builders
 {
@@ -10,9 +6,9 @@ namespace StockExchange.Domain.Test.Builders
     {
         private SettlePair settlePair = new SettlePair();
 
-        public SettlePairBuilder WithId(int id)
+        public SettlePairBuilder WithId(decimal id)
         {
-            settlePair.Id = id;
+            //settlePair.Id = id;
             return this;
         }
         public SettlePairBuilder WithName(string name)

@@ -27,18 +27,6 @@ namespace Common.Abstractions
 
         public TId Id { get; protected set; }
 
-        public  bool IsDeleted { get; protected set; }
-
-        public virtual void Delete()
-        {
-            this.IsDeleted = true;
-        }
-
-        public virtual void Restore()
-        {
-            this.IsDeleted = false;
-        }
-
         public override bool Equals(object otherObject)
         {
             var entity = otherObject as Entity<TId>;
