@@ -25,7 +25,8 @@ namespace StockExchange.Web.Controllers.Api
         [Route("current")]
         public async Task<IActionResult> CurrentFirm()
         {
-            return Ok(await _context.Firms.SingleAsync(x => x.Id == 1290));
+            var result = await _context.Firms.Include(x => x.SettlePairs).SingleAsync(x => x.Id == 1290);
+            return Ok(result);
         }
 
         [HttpGet]

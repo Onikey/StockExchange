@@ -8,7 +8,8 @@ namespace StockExchange.Core
         internal Firm()
         {
             SettlePairs = new List<SettlePair>();
-            //Trades = new List<Trade>();
+            TradesAsConf = new List<Trade>();
+            TradesAsInit = new List<Trade>();
         }
 
         public string Name { get; internal set; }
@@ -17,7 +18,9 @@ namespace StockExchange.Core
 
         public List<SettlePair> SettlePairs { get; private set; }
 
-        //public List<Trade> Trades { get; private set; }
+        public List<Trade> TradesAsInit { get; private set; }
+
+        public List<Trade> TradesAsConf { get; private set; }
 
         public void CreateTrade(
             Issue issue,
@@ -38,25 +41,26 @@ namespace StockExchange.Core
                 initMemo: initMemo,
                 confFirm: confFirm);
 
-            //Trades.Add(newTrade);
+            TradesAsInit.Add(newTrade);
 
-            //confFirm.ProposeTrade(newTrade);
+            confFirm.ProposeTrade(newTrade);
         }
 
-        //internal void ProposeTrade(Trade newTrade)
-        //{
-        //    if (newTrade.Status == Status.New && !Trades.Contains(newTrade))
-        //    {
-        //        Trades.Add(newTrade);
-        //    }
-        //}
+        internal void ProposeTrade(Trade newTrade)
+        {
+            if (newTrade.Status == Status.New && !TradesAsConf.Contains(newTrade))
+            {
+                TradesAsConf.Add(newTrade);
+            }
+        }
 
-        //public void removeTrade(Trade trade)
-        //{
-        //    Trades.Remove(trade);
-        //}
+        public void RemoveTrade(Trade trade)
+        {
+            TradesAsConf.Remove(trade);
+            TradesAsInit.Remove(trade);
+        }
 
-        public void affirmTrade(Trade trade)
+        public void AffirmTrade(Trade trade)
         {
 
         }

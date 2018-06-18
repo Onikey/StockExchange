@@ -1,12 +1,19 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockExchange.Core
 {
     public class Trade : BaseEntity<decimal>
     {
-        private Trade() { }
+        public Trade() { }
 
+        [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
+        public override decimal Id { get; set; }
+
+        [ForeignKey("IssueName")]
         public Issue Issue { get; set; }
+
+        public string IssueName { get; set; }
 
         public double Price { get; set; }
 
@@ -18,17 +25,29 @@ namespace StockExchange.Core
 
         public DateTime? AffirmMoment { get; set; }
 
+        [ForeignKey("InitFirmName")]
         public Firm InitFirm { get; set; }
 
+        public string InitFirmName { get; set; }
+
+        [ForeignKey("InitSettlePairName")]
         public SettlePair InitSettlePair { get; set; }
+
+        public string InitSettlePairName { get; set; }
 
         public string InitAction { get; set; }
 
         public string InitMemo { get; set; }
 
+        [ForeignKey("ConfFirmName")]
         public Firm ConfFirm { get; set; }
 
+        public string ConfFirmName { get; set; }
+
+        [ForeignKey("ConfSettlePairName")]
         public SettlePair ConfSettlePair { get; set; }
+
+        public string ConfSettlePairName { get; set; }
 
         public string ConfAction { get; set; }
 
@@ -39,7 +58,7 @@ namespace StockExchange.Core
 
 
 
-        internal static Trade Create(
+        public static Trade Create(
             Issue issue,
             double price,
             int qty,

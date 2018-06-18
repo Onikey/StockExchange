@@ -1,47 +1,64 @@
 <form [formGroup]="tradeForm">
     <div>
-        <button mat-button color="primary">BUY</button>
-    </div>
-    <div>
-        <div class="issue-container">
-            <mat-form-field class="example-full-width">
-                <input type="text" matInput placeholder="Issue name" aria-label="Issue name" [matAutocomplete]="issueAuto" formControlName="issue">
-                <mat-autocomplete #issueAuto="matAutocomplete">
-                    <mat-option *ngFor="let issue of issues | async" [value]="issue.name">
-                        <span>{{ issue.name }}</span>
-                    </mat-option>
-                </mat-autocomplete>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input type="text" matInput placeholder="Issue Full name" aria-label="Issue Full name" readonly [value]="'test'">
-            </mat-form-field>
-        </div>
         <div>
-            <mat-form-field class="example-full-width">
-                <input type="text" matInput placeholder="Conf Firm" aria-label="Conf Firm" [matAutocomplete]="confFirm" formControlName="confFirm">
-                <mat-autocomplete #confFirm="matAutocomplete">
-                    <mat-option *ngFor="let confFirm of confFirms | async" [value]="confFirm.name">
-                        <span>{{ confFirm.name }}</span>
-                    </mat-option>
-                </mat-autocomplete>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input type="text" matInput placeholder="Conf Firm Full name" aria-label="Conf Firm Full name" readonly [value]="'test'">
-            </mat-form-field>
+            <button mat-button color="primary" *ngIf="tradeAction === 'P'" (click)="changeTradeAction()">Buy</button>
+            <button mat-button color="assent" *ngIf="tradeAction === 'S'" (click)="changeTradeAction()">Sell</button>
+        </div>
+        <div class="main-input-container">
+            <div class="issue-container">
+                <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="Issue name" aria-label="Issue name" [matAutocomplete]="issueAuto" formControlName="issue">
+                    <mat-autocomplete #issueAuto="matAutocomplete">
+                        <mat-option *ngFor="let issue of issues" [value]="issue.name">
+                            <span>{{ issue.name }}</span>
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="Issue Full name" aria-label="Issue Full name" readonly disabled [value]="issueFullName">
+                </mat-form-field>
+            </div>
+            <div class="firm-container">
+                <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="Conf Firm" aria-label="Conf Firm" [matAutocomplete]="confFirmAuto" formControlName="confFirm">
+                    <mat-autocomplete #confFirmAuto="matAutocomplete">
+                        <mat-option *ngFor="let confFirm of confFirms" [value]="confFirm.name">
+                            <span>{{ confFirm.name }}</span>
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="Conf Firm Full name" aria-label="Conf Firm Full name" readonly disabled [value]="confFirmFullName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="buttons-container">
+            <button mat-button color="primary" (click)="onSubmit()">Submit</button>
+            <button mat-button color="primary" (click)="onReset()">Reset</button>
         </div>
     </div>
-    <!-- <div>
+    <div>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Conf Firm" aria-label="Conf Firm" >
+            <input type="text" matInput placeholder="SettlePair" aria-label="Conf Firm" [matAutocomplete]="settlePairAuto" formControlName="settlePair">
+            <mat-autocomplete #settlePairAuto="matAutocomplete">
+                <mat-option *ngFor="let settlePair of currentFirm?.settlePairs" [value]="settlePair.name">
+                    <span>{{ settlePair.name }}</span>
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input type="number" min="0" #price matInput placeholder="Price" aria-label="Price" formControlName="price">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input type="number" min="0" pattern="[0-9]" #qty matInput placeholder="Qty" aria-label="Qty" formControlName="qty">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input type="number" matInput placeholder="Volume" aria-label="Volume" readonly disabled [value]="price.value * qty.value">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Conf Firm" aria-label="Conf Firm" >
+            <textarea matInput placeholder="Memo" aria-label="Memo" formControlName="memo"></textarea>
         </mat-form-field>
-    </div> -->
-    <div>
-        <button mat-button color="primary" (click)="onSubmit()">Submit</button>
-        <button mat-button color="primary" (click)="onReset()">Reset</button>
     </div>
 </form>

@@ -18,6 +18,8 @@ namespace StockExchange.Core
 
         public Firm Firm { get; internal set; }
 
+        public string FirmName { get; set; }
+
         public List<Asset> Assets { get; set; }
 
     }

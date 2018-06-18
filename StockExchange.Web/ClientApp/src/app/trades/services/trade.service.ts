@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Firm, Issue } from '../models';
+import { Firm, Issue, Trade } from '../models';
 
 @Injectable()
 export class TradeService {
@@ -23,4 +23,26 @@ export class TradeService {
         return this.httpClient.get<Issue[]>('http://localhost:52382/api/issues')
             .pipe();
     }
+
+    public createTrade(newTrade: TradeInsertion): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+
+        return this.httpClient.post('http://localhost:52382/api/trade', newTrade, httpOptions)
+            .pipe();
+    }
+}
+
+export interface TradeInsertion {
+    issueName: string;
+    price: number;
+    qty: number;
+    initFirmName: string;
+    initSettlePairName: string;
+    initAction: string;
+    initMemo?: string;
+    confFirmName: string;
 }

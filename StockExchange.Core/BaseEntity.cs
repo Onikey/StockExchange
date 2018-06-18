@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace StockExchange.Core
@@ -18,7 +19,7 @@ namespace StockExchange.Core
         {
 
         }
-
-        public Tid Id { get; set; }
+        
+        public virtual Tid Id { get; set; }
     }
 }
